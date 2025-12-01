@@ -2,6 +2,7 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const yearSpan = document.getElementById('year');
 const contactForm = document.getElementById('contact-form');
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
 // Cloudflare now handles HTTPS + www redirection; keep browsing experience stable by
 // avoiding client-side redirects that could cause loops on cached deployments.
 
@@ -30,6 +31,21 @@ if (contactForm) {
     const name = contactForm.name.value.trim();
     alert(`Thank you, ${name || 'friend'}! We will reach out shortly.`);
     contactForm.reset();
+  });
+}
+
+// Smooth scroll to anchors for nav and CTA links
+if (anchorLinks.length) {
+  anchorLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href').replace('#', '');
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
 }
 
