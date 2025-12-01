@@ -3,12 +3,14 @@ const navLinks = document.querySelector('.nav-links');
 const yearSpan = document.getElementById('year');
 const contactForm = document.getElementById('contact-form');
 const preferredHost = 'www.funaryabeaute.co.za';
+const brandHosts = ['funaryabeaute.co.za', preferredHost];
 
 const enforceHttpsAndWww = () => {
   const hostname = window.location.hostname.toLowerCase();
   const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
+  const onBrandDomain = brandHosts.includes(hostname);
 
-  if (!isLocal && hostname.includes('funaryabeaute.co.za')) {
+  if (!isLocal && onBrandDomain) {
     const isPreferredHost = hostname === preferredHost;
     const needsHttps = window.location.protocol !== 'https:';
     const needsWww = !isPreferredHost;

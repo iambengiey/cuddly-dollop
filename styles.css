@@ -1,8 +1,8 @@
 :root {
-  --background: #fdf9f6; /* Adjust this color to match brand palette */
-  --primary: #f4b6c2; /* Soft pastel pink */
-  --primary-dark: #d98ba0;
-  --secondary: #7bb8b3; /* Mint accent */
+  --background: #fffaf7;
+  --primary: #f3a6bf; /* Pulled from the Funarya Beauté logo */
+  --primary-dark: #d784a0;
+  --secondary: #7ec7c0; /* Cool mint accent from the logo */
   --text: #1f2933;
   --muted: #5f6b73;
   --card: #ffffff;
@@ -35,11 +35,19 @@ img {
   border-radius: 12px;
 }
 
-header.hero {
+.hero {
   background: linear-gradient(135deg, #fff7f3 0%, #f1fbf9 100%);
   padding: 1.5rem 1.5rem 4rem;
   position: relative;
   overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  gap: 2rem;
 }
 
 .top-nav {
@@ -55,12 +63,22 @@ header.hero {
   border-radius: 16px;
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .brand {
   font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -103,6 +121,7 @@ header.hero {
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
+  width: 100%;
 }
 
 .hero-text h1 {
@@ -125,6 +144,7 @@ header.hero {
 .hero-visual {
   display: grid;
   justify-content: end;
+  justify-items: end;
 }
 
 .hero-card {
@@ -414,11 +434,25 @@ input:focus, textarea:focus {
 
   .hero-content {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-visual {
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 }
 
 @media (min-width: 900px) {
   .hero-content {
     grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  .hero-visual {
+    justify-items: end;
   }
 }
