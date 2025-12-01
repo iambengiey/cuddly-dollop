@@ -2,6 +2,27 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const yearSpan = document.getElementById('year');
 const contactForm = document.getElementById('contact-form');
+const preferredHost = 'www.funaryabeaute.co.za';
+
+const enforceHttpsAndWww = () => {
+  const hostname = window.location.hostname.toLowerCase();
+  const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
+
+  if (!isLocal && hostname.includes('funaryabeaute.co.za')) {
+    const isPreferredHost = hostname === preferredHost;
+    const needsHttps = window.location.protocol !== 'https:';
+    const needsWww = !isPreferredHost;
+
+    if (needsHttps || needsWww) {
+      const target = new URL(window.location.href);
+      target.protocol = 'https:';
+      target.hostname = preferredHost;
+      window.location.replace(target.toString());
+    }
+  }
+};
+
+enforceHttpsAndWww();
 
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
