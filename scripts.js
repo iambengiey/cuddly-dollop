@@ -2,29 +2,8 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const yearSpan = document.getElementById('year');
 const contactForm = document.getElementById('contact-form');
-const preferredHost = 'www.funaryabeaute.co.za';
-const brandHosts = ['funaryabeaute.co.za', preferredHost];
-
-const enforceHttpsAndWww = () => {
-  const hostname = window.location.hostname.toLowerCase();
-  const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
-  const onBrandDomain = brandHosts.includes(hostname);
-
-  if (!isLocal && onBrandDomain) {
-    const isPreferredHost = hostname === preferredHost;
-    const needsHttps = window.location.protocol !== 'https:';
-    const needsWww = !isPreferredHost;
-
-    if (needsHttps || needsWww) {
-      const target = new URL(window.location.href);
-      target.protocol = 'https:';
-      target.hostname = preferredHost;
-      window.location.replace(target.toString());
-    }
-  }
-};
-
-enforceHttpsAndWww();
+// Cloudflare now handles HTTPS + www redirection; keep browsing experience stable by
+// avoiding client-side redirects that could cause loops on cached deployments.
 
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
