@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4b6c2" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#7bb8b3" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="40" fill="url(#heroGrad)" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Poppins, Arial" font-size="40" fill="#fff">
+    Replace with hero image
+  </text>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="Poppins, Arial" font-size="18" fill="#fff" opacity="0.85">
+    Funarya Beauté salon & training
+  </text>
+</svg>
